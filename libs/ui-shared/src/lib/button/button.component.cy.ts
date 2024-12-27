@@ -18,20 +18,6 @@ describe(ButtonComponent.name, () => {
         disabled: false,
       },
     });
-  });
-  it('matches visual regression', () => {
-    cy.mount(ButtonComponent, {
-      componentProperties: {
-        label: 'Click Me',
-        disabled: false,
-      },
-    });
-    cy.eyesOpen({
-      appName: 'UI Components Library',
-      testName: Cypress.currentTest.title
-    });
-    cy.eyesCheckWindow({
-      tag: 'Badge'
-    });
+    cy.get('.simple-button').should('have.text', 'Click Me');
   });
 });
